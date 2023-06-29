@@ -58,8 +58,25 @@ export const logoutActionHandler = () => {
     localStorage.removeItem('expirationTime');
 }
 
-export const getUserInfoActionHandler = (token:string) =>{
+export const getUserActionHandler = (token:string) =>{
     const URL = '/member/me';
     const response = GET(URL, createTokenHeader(token));
     return response;
 }
+
+export const changeNicknameActionHandler = (nickname: string, token: string) => {
+    const URL = '/member/nickname';
+    const changeNicknameObj = {nickname}
+    const response = POST(URL, changeNicknameObj, createTokenHeader(token));
+    
+    return response;
+}
+
+export const changePasswordActionHandler = (
+    exPassword: string, newPassword: string, token: string) => {
+        const URL = '/member/password';
+        const changePasswordObj = {exPassword, newPassword}
+        const response = POST(URL, changePasswordObj, createTokenHeader(token));
+        return response;
+}
+
