@@ -134,6 +134,7 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
 
     return (
         <AuthContext.Provider value={contextValue}>
+
             {props.children}
         </AuthContext.Provider>
     )
