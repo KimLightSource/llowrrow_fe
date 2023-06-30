@@ -1,4 +1,4 @@
-import { GET, POST } from "./fetch-auth-action"
+import {GET, POST} from "./fetch-auth-action"
 
 const createTokenHeader = (token:string) => {
     return {
@@ -37,9 +37,9 @@ export const retrieveStoredToken = () => {
     }
 }
 
-export const signupActionHandler = (userId: string, password: string, nickname: string) => {
+export const signupActionHandler = (userid: string, password: string, nickname: string) => {
     const URL = '/auth/signup'
-    const signupObject = {userId, password, nickname}
+    const signupObject = {userid, password, nickname}
 
     const response = POST(URL, signupObject, {});
     return response;

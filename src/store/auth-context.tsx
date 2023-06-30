@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import * as authAction from './auth-action';
 
 let logoutTimer: NodeJS.Timeout;
@@ -17,7 +17,7 @@ const AuthContext = React.createContext({
     isLoggedIn: false,
     isSuccess: false,
     isGetSuccess: false,
-    signUp: (email:string, password:string, nickname:string) => {},
+    signUp: (userid:string, password:string, email:string,  nickname:string) => {},
     login: (email:string, password: string) => {},
     logout: () => {},
     getUser: () => {},
@@ -48,6 +48,7 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
         setIsSuccess(false);
         const response = authAction.signupActionHandler(userId, password, nickname);
         response.then((result) => {
+            console.log(result);
             if (result !== null) {
                 setIsSuccess(true);
             }
@@ -134,12 +135,13 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
 
     return (
         <AuthContext.Provider value={contextValue}>
-
             {props.children}
         </AuthContext.Provider>
     )
 
 }
+
+export default AuthContext;
 
 
 

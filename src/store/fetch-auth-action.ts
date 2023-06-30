@@ -1,4 +1,5 @@
-import axios, { AxiosError,AxiosResponse }  from 'axios';
+import axios, {AxiosError, AxiosResponse} from 'axios';
+import {environment} from "../environement/environments";
 
 type ServerError = { errorMessage: string };
 type LoginFailType = { status: number, error: string,};
@@ -12,9 +13,13 @@ interface FetchData {
 
 const fetchAuth = async (fetchData: FetchData) => {
     const method = fetchData.method;
-    const url = fetchData.url;
+    const url = environment.devApi + fetchData.url;
     const data = fetchData.data;
     const header = fetchData.header;
+    console.log("method: " + method);
+    console.log("url: " + url);
+    console.log("data: " + data);
+    console.log("header: " + header);
 
     try {
         const response:AxiosResponse<any, any> | false =
