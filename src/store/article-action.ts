@@ -32,7 +32,7 @@ export const getOneArticle = (param:string, token?:string) => {
     }
 }
 
-export const makeArticle = (token:string, article:PostArticle) => {
+export const makeArticle = (article:PostArticle, token:string) => {
     const URL = '/article/';
     const response = POST(URL, article, createTokenHeader(token))
     return response;

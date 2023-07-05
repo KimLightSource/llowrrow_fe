@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {AuthContextProvider} from "./store/auth-context";
+import AuthContext, {AuthContextProvider} from "./store/auth-context";
 import {BrowserRouter} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement

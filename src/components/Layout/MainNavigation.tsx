@@ -1,6 +1,7 @@
 import {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+import {Container, Nav, Navbar} from "react-bootstrap";
 
 const MainNavigation = () =>{
     const authCtx = useContext(AuthContext);
@@ -26,15 +27,21 @@ const MainNavigation = () =>{
 
     return (
         <header >
-            <Link to='/'><div >Home</div></Link>
-            <nav>
-                <ul>
-                    <li>{!isLogin && <Link to='/login'>Login</Link>}</li>
-                    <li>{!isLogin && <Link to='signup'>Sign-Up</Link>}</li>
-                    <li>{isLogin && <Link to='/profile'>{nickname}</Link>}</li>
-                    <li>{isLogin && <button onClick={toggleLogoutHandler}>Logout</button>}</li>
-                </ul>
-            </nav>
+
+            <Navbar expand="lg" className="bg-body-tertiary">
+                <Container>
+                    <Navbar.Brand href="/">llor rrow</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            {!isLogin &&  <Nav.Link href="/login">로그인</Nav.Link>}
+                            {!isLogin && <Nav.Link href="/signup">회원가입</Nav.Link>}
+                            {isLogin && <Nav.Link href='/profile'>{nickname}</Nav.Link>}
+                            {isLogin && <button onClick={toggleLogoutHandler}>Logout</button>}
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
         </header>
     )
 }

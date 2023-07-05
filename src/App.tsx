@@ -1,26 +1,30 @@
 import React, {useContext} from 'react';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import AuthPage from './pages/AuthPage';
-import AuthContext from './store/auth-context';
+import AuthContext from "./store/auth-context";
 import {Navigate, Route, Routes} from "react-router-dom";
-import CreateAccountPage from "./pages/CreateAccountPage";
 import HomePage from "./pages/HomePage";
+import CreateAccountPage from "./pages/CreateAccountPage";
+import AuthPage from "./pages/AuthPage";
 import ProfilePage from "./pages/ProfilePage";
+import MainPage from "./pages/MainPage";
 
 function App() {
 
-  const authCtx = useContext(AuthContext);
+    const authCtx = useContext(AuthContext);
   return (
       <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/signup/" element={authCtx.isLoggedIn ? <Navigate to='/' /> : <CreateAccountPage />} />
-          <Route path="/login/*"
-                 element={authCtx.isLoggedIn ? <Navigate to='/' /> : <AuthPage />}
-          />
-          <Route path="/profile/" element={!authCtx.isLoggedIn ? <Navigate to='/' /> : <ProfilePage />} />
-        </Routes>
+          <Routes>
+              <Route path="/" element={<MainPage/>}/>
+              {/*<Route path="/product/:id" element={<ProductPage/>}/>*/}
+              {/*<Route path="/upload" element={<Uploadpage/>}/>*/}
+              <Route path="/signup/" element={authCtx.isLoggedIn ? <Navigate to='/' /> : <CreateAccountPage />} />
+              <Route path="/login/*"
+                     element={authCtx.isLoggedIn ? <Navigate to='/' /> : <AuthPage />}
+              />
+              <Route path="/profile/" element={!authCtx.isLoggedIn ? <Navigate to='/' /> : <ProfilePage />} />
+          </Routes>
+
       </Layout>
   );
 }
