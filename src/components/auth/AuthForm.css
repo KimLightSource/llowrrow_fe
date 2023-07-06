@@ -31,7 +31,7 @@ img {
     width: 330px;
     height: 1000px;
     background-color: #ffffff;
-    margin: 0 auto;
+    margin: 0 30px;
     position: absolute;
 }
 
@@ -101,6 +101,7 @@ form>.checkbox_on{
     margin: 36px 0;
     display: block;
     height: 22px;
+    padding: 0;
 }
 
 #sub_menu > li {

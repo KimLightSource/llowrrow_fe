@@ -54,13 +54,13 @@ const AuthForm = () => {
                                 <br/>
 
                                 <span className="submit"><input type="submit" value="로그인"/></span>
-                                <label className="checkbox">
-                                    <input type="checkbox" name="autologin" id="autologin" />
-                                    자동 로그인
-                                </label>
+                                {/*<label className="checkbox">*/}
+                                {/*    <input type="checkbox" name="autologin" id="autologin" />*/}
+                                {/*    자동 로그인*/}
+                                {/*</label>*/}
                             </form>
                             <ul id="sub_menu">
-                                <li><a href="#">회원 가입</a></li>
+                                <li><a href="/signup">회원 가입</a></li>
                                 <li><a href="#">아이디 찾기</a></li>
                                 <li><a href="#">비밀번호 찾기</a></li>
                             </ul>
@@ -70,7 +70,7 @@ const AuthForm = () => {
                                 <span>카카오 로그인</span>
                             </a>
                             <a id="apple" href="#">
-                                <span>Apple 로그인</span>
+                                <span>Naver 로그인</span>
                             </a>
                         </div>
                     </div>
