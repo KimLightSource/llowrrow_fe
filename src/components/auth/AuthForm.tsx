@@ -1,6 +1,8 @@
 import React, {useContext, useRef, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import AuthContext from "../../store/auth-context";
+import './AuthForm.css';
+import logo from '../../images/logo_llow_rrow.png';
 
 const AuthForm = () => {
     const userIdInputRef = useRef<HTMLInputElement>(null);
@@ -26,24 +28,53 @@ const AuthForm = () => {
     }
 
     return (
-        <section >
-            <h1>Login</h1>
-            <form onSubmit={submitHandler}>
-                <div >
-                    <label htmlFor='email'>Your email</label>
-                    <input type='email' id='email' required ref={userIdInputRef}/>
+
+                <div id="wrap">
+                    <div id="login_area">
+                        <div id="login_header" className="position-sticky">
+                            <img src={logo}/>
+                        </div>
+                        <div id="login_box">
+                            <form onSubmit={submitHandler}>
+                                <input
+                                    className="input"
+                                    type="text"
+                                    id="userid"
+                                    placeholder="아이디를 입력해 주세요"
+                                    required ref={userIdInputRef}
+                                />
+                                <br/>
+                                <input
+                                    className="input"
+                                    type="password"
+                                    id="password"
+                                    placeholder="비밀번호를 입력해 주세요"
+                                    required ref={passwordInputRef}
+                                />
+                                <br/>
+
+                                <span className="submit"><input type="submit" value="로그인"/></span>
+                                <label className="checkbox">
+                                    <input type="checkbox" name="autologin" id="autologin" />
+                                    자동 로그인
+                                </label>
+                            </form>
+                            <ul id="sub_menu">
+                                <li><a href="#">회원 가입</a></li>
+                                <li><a href="#">아이디 찾기</a></li>
+                                <li><a href="#">비밀번호 찾기</a></li>
+                            </ul>
+                        </div>
+                        <div id="social">
+                            <a id="kakao" href="#">
+                                <span>카카오 로그인</span>
+                            </a>
+                            <a id="apple" href="#">
+                                <span>Apple 로그인</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div >
-                    <label htmlFor="password">Your password</label>
-                    <input type='password' id='password' required ref={passwordInputRef}/>
-                </div>
-                <div >
-                    <button type='submit'>Login</button>
-                    {isLoading && <p>Loading</p>}
-                    <p>Create Account</p>
-                </div>
-            </form>
-        </section>
 
     );
 };
