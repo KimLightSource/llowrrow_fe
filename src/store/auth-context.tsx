@@ -17,13 +17,14 @@ const AuthContext = React.createContext({
     isLoggedIn: false,
     isSuccess: false,
     isGetSuccess: false,
-    signUp: (userid:string, password:string, email:string,  nickname:string) => {},
+    signUp: (userid:string, password:string, email:string,  nickname:string, address:string) => {},
     login: (email:string, password: string) => {},
     logout: () => {},
     getUser: () => {},
     changeNickname: (nickname:string) => {},
     changePassword: (exPassword:string, newPassword: string) => {}
-});
+    }
+);
 
 export const AuthContextProvider:React.FC<Props> = (props) => {
     const tokenData = authAction.retrieveStoredToken();
@@ -44,9 +45,9 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
 
     const userIsLoggedIn = !!token;
 
-    const signupHandler = (userId:string, password:string, nickname:string) => {
+    const signupHandler = (userId:string, password:string, nickname:string, email:string, address:string) => {
         setIsSuccess(false);
-        const response = authAction.signupActionHandler(userId, password, nickname);
+        const response = authAction.signupActionHandler(userId, password, nickname, email, address);
         response.then((result) => {
             console.log(result);
             if (result !== null) {
@@ -119,6 +120,7 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
             logoutTimer = setTimeout(logoutHandler, tokenData.duration);
         }
     },[tokenData, logoutHandler])
+
     const contextValue = {
         token,
         userObj,

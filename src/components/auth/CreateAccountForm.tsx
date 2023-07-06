@@ -7,9 +7,10 @@ const CreateAccountForm = () => {
     let navigate = useNavigate();
     const authCtx = useContext(AuthContext);
     const userIdInputRef = useRef<HTMLInputElement>(null);
-    const emailInputRef = useRef<HTMLInputElement>(null);
     const passwordInputRef = useRef<HTMLInputElement>(null);
     const nicknameInputRef = useRef<HTMLInputElement>(null);
+    const emailInputRef = useRef<HTMLInputElement>(null);
+    const addressInputRef = useRef<HTMLInputElement>(null);
 
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
@@ -18,7 +19,8 @@ const CreateAccountForm = () => {
         const enteredPassword = passwordInputRef.current!.value;
         const enteredNickname = nicknameInputRef.current!.value;
         const enteredEmail = emailInputRef.current!.value;
-        authCtx.signUp(enteredUserId, enteredPassword, enteredEmail, enteredNickname);
+        const enteredAddress = addressInputRef.current!.value;
+        authCtx.signUp(enteredUserId, enteredPassword, enteredEmail, enteredNickname, enteredAddress);
 
         if (authCtx.isSuccess) {
             return navigate("/", {replace: true});
@@ -36,16 +38,24 @@ const CreateAccountForm = () => {
                     <form onSubmit={submitHandler}>
                         <div className="row">
                             <div className="col-md-6 mb-3">
-                                <label htmlFor="name">이름</label>
-                                <input type="text" className="form-control" id="name" placeholder="" required/>
+                                <label htmlFor="name">아이디</label>
+                                <input type="text" className="form-control" id="name" placeholder="" ref={userIdInputRef} required/>
                                 <div className="invalid-feedback">
-                                    이름을 입력해주세요.
+                                    아이디를 입력해주세요.
+                                </div>
+                            </div>
+                            <div className="col-md-6 mb-3">
+                                <label htmlFor="nickname">비밀번호</label>
+                                <input type="text" className="form-control" id="nickname" placeholder=""
+                                       required ref={passwordInputRef}/>
+                                <div className="invalid-feedback">
+                                    비밀번호를 입력해주세요.
                                 </div>
                             </div>
                             <div className="col-md-6 mb-3">
                                 <label htmlFor="nickname">별명</label>
                                 <input type="text" className="form-control" id="nickname" placeholder=""
-                                       required/>
+                                       required ref={nicknameInputRef}/>
                                 <div className="invalid-feedback">
                                     별명을 입력해주세요.
                                 </div>
@@ -55,7 +65,7 @@ const CreateAccountForm = () => {
                         <div className="mb-3">
                             <label htmlFor="email">이메일</label>
                             <input type="email" className="form-control" id="email" placeholder="you@example.com"
-                                   required/>
+                                   required ref={emailInputRef}/>
                             <div className="invalid-feedback">
                                 이메일을 입력해주세요.
                             </div>
@@ -63,8 +73,8 @@ const CreateAccountForm = () => {
 
                         <div className="mb-3">
                             <label htmlFor="address">주소</label>
-                            <input type="text" className="form-control" id="address" placeholder="서울특별시 강남구" required/>
-                            <div className="invalid-feedback">
+                            <input type="text" className="form-control" id="address" placeholder="서울특별시 강남구" ref={addressInputRef} required/>
+                            <div className="invalid-feedback" >
                                 주소를 입력해주세요.
                             </div>
                         </div>

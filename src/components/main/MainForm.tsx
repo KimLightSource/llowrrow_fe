@@ -1,7 +1,8 @@
 import React, {Children} from 'react';
 import {Carousel} from "react-bootstrap";
+import MainProductListForm from "./MainProductListForm";
 
-const contentStyle:any = {
+const contentStyle: any = {
     height: '160px',
     color: '#fff',
     lineHeight: '160px',
@@ -11,36 +12,21 @@ const contentStyle:any = {
 };
 
 const MainForm = () => {
-    const onChange = (currentSlide:any) => {
+    const onChange = (currentSlide: any) => {
         console.log(currentSlide);
     };
     return (
+
         <div>
-            <div id="main">
-                <div id="banner">
-                    <Carousel>
-                        <div>
-                            <img src="../images/banners/./banner1.png" alt="" />
-                            <h3 style={contentStyle}>1</h3>
-                        </div>
-                        <div>
-                            <img src="../images/banners/./banner2.png" alt="" />
-                            <h3 style={contentStyle}>2</h3>
-                        </div>
-                        <div>
-                            <img src="../images/banners/./banner1.png" alt="" />
-                            <h3 style={contentStyle}>3</h3>
-                        </div>
-                    </Carousel>
+            <header className="bg-dark py-5">
+                <div className="container px-4 px-lg-5 my-5">
+                    <div className="text-center text-white">
+                        <h1 className="display-4 fw-bolder">강커피 드실라우?</h1>
+                        <p className="lead fw-normal text-white-50 mb-0">앙~ 커피좋아!</p>
+                    </div>
                 </div>
-                <div id="product-list" className='inner'>
-                    <h2>llow rrow</h2>
-                    {/*<div id="product-items">*/}
-                    {/*    /!* 나중에 map 이용해서 밑에꺼 8개 뿌려줄거임 *!/*/}
-                    {/*    {products.map(product => <MainProduct key = {product.id} product={product} />)}*/}
-                    {/*</div>*/}
-                </div>
-            </div>
+            </header>
+           <MainProductListForm></MainProductListForm>
         </div>
     );
 };

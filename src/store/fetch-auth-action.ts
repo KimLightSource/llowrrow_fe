@@ -18,8 +18,8 @@ const fetchAuth = async (fetchData: FetchData) => {
     const header = fetchData.header;
     console.log("method: " + method);
     console.log("url: " + url);
-    console.log("data: " + data);
-    console.log("header: " + header);
+    console.log("data: " + JSON.stringify(data));
+    console.log("header: " + JSON.stringify(header));
 
     try {
         const response:AxiosResponse<any, any> | false =
