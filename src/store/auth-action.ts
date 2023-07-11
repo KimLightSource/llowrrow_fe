@@ -45,9 +45,9 @@ export const signupActionHandler = (userid: string, password: string, nickname: 
     return response;
 }
 
-export const loginActionHandler = (userId:string, password:string) => {
+export const loginActionHandler = (userid:string, password:string) => {
     const URL = '/auth/login';
-    const loginObject = {userId, password}
+    const loginObject = {userid, password}
     const response = POST(URL, loginObject, {});
 
     return response;

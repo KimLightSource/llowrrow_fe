@@ -18,7 +18,7 @@ const AuthContext = React.createContext({
     isSuccess: false,
     isGetSuccess: false,
     signUp: (userid:string, password:string, email:string,  nickname:string, address:string) => {},
-    login: (email:string, password: string) => {},
+    login: (userid:string, password: string) => {},
     logout: () => {},
     getUser: () => {},
     changeNickname: (nickname:string) => {},
@@ -56,11 +56,11 @@ export const AuthContextProvider:React.FC<Props> = (props) => {
         })
     }
 
-    const loginHandler = (userId: string, password: string) =>{
+    const loginHandler = (userid: string, password: string) =>{
         setIsSuccess(false)
         console.log(isSuccess);
 
-        const data = authAction.loginActionHandler(userId, password);
+        const data = authAction.loginActionHandler(userid, password);
         data.then((result) => {
             if (result !== null)  {
                 const loginData:LoginToken = result.data;
