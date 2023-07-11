@@ -41,7 +41,8 @@ const AuthForm = () => {
                                     type="text"
                                     id="userid"
                                     placeholder="아이디를 입력해 주세요"
-                                    required ref={userIdInputRef}
+                                    required
+                                    ref={userIdInputRef}
                                 />
                                 <br/>
                                 <input
@@ -49,7 +50,8 @@ const AuthForm = () => {
                                     type="password"
                                     id="password"
                                     placeholder="비밀번호를 입력해 주세요"
-                                    required ref={passwordInputRef}
+                                    required
+                                    ref={passwordInputRef}
                                 />
                                 <br/>
 

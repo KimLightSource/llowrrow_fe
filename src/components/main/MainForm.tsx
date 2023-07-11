@@ -21,7 +21,7 @@ const MainForm = () => {
             <header className="bg-dark py-5">
                 <div className="container px-4 px-lg-5 my-5">
                     <div className="text-center text-white">
-                        <h1 className="display-4 fw-bolder">강커피 드실라우?</h1>
+                        <h1 className="display-4 fw-bolder">강커피</h1>
                         <p className="lead fw-normal text-white-50 mb-0">앙~ 커피좋아!</p>
                     </div>
                 </div>

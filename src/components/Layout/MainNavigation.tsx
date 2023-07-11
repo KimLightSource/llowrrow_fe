@@ -38,6 +38,7 @@ const MainNavigation = () =>{
                             {!isLogin && <Nav.Link href="/signup">회원가입</Nav.Link>}
                             {isLogin && <Nav.Link href='/profile'>{nickname}</Nav.Link>}
                             {isLogin && <button onClick={toggleLogoutHandler}>Logout</button>}
+                            {isLogin && <Nav.Link href='/productRegister'>상품 등록</Nav.Link>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

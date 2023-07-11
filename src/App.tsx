@@ -8,6 +8,7 @@ import CreateAccountPage from "./pages/CreateAccountPage";
 import AuthPage from "./pages/AuthPage";
 import ProfilePage from "./pages/ProfilePage";
 import MainPage from "./pages/MainPage";
+import ProductRegister from "./components/product/ProductRegister";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
                      element={authCtx.isLoggedIn ? <Navigate to='/' /> : <AuthPage />}
               />
               <Route path="/profile/" element={!authCtx.isLoggedIn ? <Navigate to='/' /> : <ProfilePage />} />
+              <Route path="/productRegister/" element={!authCtx.isLoggedIn ? <Navigate to='/' /> : <ProductRegister />} />
           </Routes>
 
       </Layout>
